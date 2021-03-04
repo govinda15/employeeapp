@@ -3,20 +3,24 @@ import { StyleSheet, Text, View,Image, FlatList  } from 'react-native';
 import {Card, Paragraph,Title,TouchableRipple,FAB } from 'react-native-paper'
 
 
-const  Home=()=>{
+const  Home=({navigation})=>{
     const data =[
-        {id:1,name:"Aakash",postion:"soft developer"},
-        {id:2,name:"Akash m",postion:"web developer"},
-        {id:3,name:"Prithvi",postion:"soft developer"},
-        {id:4,name:"Udit",postion:"hardware developer"},
-        {id:5,name:"Ansh",postion:"soft developer"},
-        {id:6,name:"Anish m",postion:"web developer"},
-        {id:7,name:"Priti",postion:"soft developer"},
-        {id:8,name:"Uttkarsh",postion:"hardware developer"},
+        {id:1,name:"Aakash",email:"akki@532.com",salary:"5 LPA",phone:"8553502704"postion:"soft developer",picture:"https://avatars.githubusercontent.com/u/31354722?s=400&u=33179d55a56c4e39653657453b2a7a1906137198&v=4"},
+        {id:2,name:"Akash m",email:"akashmanavarthe@532.com",salary:"3 LPA",phone:"91102433856"postion:"soft developer",picture:"https://avatars0.githubusercontent.com/u/76091038?s=400&u=1cfde463a0d0538768de3ac8269b621264b0071b&v=4"},
+        {id:1,name:"Aakash",email:"akki@532.com",salary:"5 LPA",phone:"8553502704"postion:"soft developer",picture:"https://avatars.githubusercontent.com/u/31354722?s=400&u=33179d55a56c4e39653657453b2a7a1906137198&v=4"}
+        {id:1,name:"Aakash",email:"akki@532.com",salary:"5 LPA",phone:"8553502704"postion:"soft developer",picture:"https://avatars.githubusercontent.com/u/31354722?s=400&u=33179d55a56c4e39653657453b2a7a1906137198&v=4"}
+
+        // {id:5,name:"Ansh",postion:"soft developer"},
+        // {id:6,name:"Anish m",postion:"web developer"},
+        // {id:7,name:"Priti",postion:"soft developer"},
+        // {id:8,name:"Uttkarsh",postion:"hardware developer"},
     ]
     const renderlist = ((item)=>{
         return(
-            <Card style={styles.mycard} key={item.id}>
+            <Card style={styles.mycard} key={item.id}
+            
+            onPress={()=>navigation.navigate("Profile")}
+            >
             <View style={styles.cardview}>
             <Image style={{width:60,height:60,borderRadius:60/2}}
                 source={{uri:"https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"}}/>
@@ -34,8 +38,8 @@ const  Home=()=>{
         )
     })
     return (
-            <TouchableRipple onPress={()=>console.log('pressed')} RippleColor='#f0f'>
-        <View>
+           // <TouchableRipple onPress={()=>console.log('pressed')} RippleColor='#f0f'>
+        <View style={{flex:1}}>
         
 
             {/* <Card.Title>
@@ -56,16 +60,16 @@ const  Home=()=>{
               return  renderlist(item)
             }}
         />
-            <FAB
+            <FAB  onPress={()=>navigation.navigate("create")}
                 style={styles.fab}
                 small={false}
                 theme={{colors:{accent:"red"}}}
                 icon="plus"
-                onPress={() =>console.log('Pressed')}
+               // onPress={() =>console.log('Pressed')}
             />
 
             </View>
-        </TouchableRipple>
+      //  </TouchableRipple>
        
     )   
 }
